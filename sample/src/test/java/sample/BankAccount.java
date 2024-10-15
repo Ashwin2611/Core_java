@@ -1,4 +1,4 @@
-package package1;
+package sample;
  
 class Person{
 	private String name;
@@ -51,6 +51,7 @@ class Account extends Person{
 		return number;
 	}
 	public Account(long accNum, double balance, Person accholder) {
+		super(accholder.getName(),accholder.getAge());
 		this.accNum = accNum;
 		this.balance = balance;
 		this.accholder = accholder;
@@ -74,7 +75,6 @@ public void depositAmount(double amount) {
 			System.out.println("Insufficient balance");
 		}
 	}
-	@Override
 	public String toString() {
 		return "Account [accNumber=" + accNum + ", balance=" + balance + ", accHolder=" + accholder.getName() + ", " + accholder.getAge() +"]";
 	}

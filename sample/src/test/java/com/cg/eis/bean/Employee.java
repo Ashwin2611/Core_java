@@ -7,12 +7,12 @@ public class Employee {
 	private String designation;
 	private String insuranceScheme;
 	
-	public Employee(int id,String Name,double salary,String designation,String insuranceScheme) {
+	public Employee(int id,String name,double salary,String designation) {
 		this.id=id;
 		this.name=name;
 		this.salary=salary;
 		this.designation=designation;
-		this.insuranceScheme=insuranceScheme;
+		this.insuranceScheme=desig(designation);
 	}
 	
 	public int getId() {
@@ -45,14 +45,26 @@ public class Employee {
 
 	    public void setDesignation(String designation) {
 	        this.designation = designation;
+	        this.insuranceScheme=desig(designation);
 	    }
 
 	    public String getInsuranceScheme() {
 	        return insuranceScheme;
 	    }
-
-	    public void setInsuranceScheme(String insuranceScheme) {
-	        this.insuranceScheme = insuranceScheme;
+	    
+	    public String desig(String designation) {
+	    	if(designation.equalsIgnoreCase("Manager")) {
+	    		return "Scheme 1";
+	    	}
+	    	else if(designation.equalsIgnoreCase("Team Lead")) {
+	    		return "Scheme 2";
+	    	}
+	    	else if(designation.equalsIgnoreCase("Developer")) {
+	    		return "Scheme 3";
+	    	}
+	    	else {
+	    		return "No Scheme";
+	    	}
 	    }
 
 	    // Method to display employee details
@@ -66,16 +78,13 @@ public class Employee {
 	
 	
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		Employee emp=new Employee(26,"Ashwin",30000.00,"Tester","Scheme A");
-		 emp.displayEmployeeDetails();
-
-	        // Modifying employee's insurance scheme
-	        emp.setInsuranceScheme("Scheme B");
-	        System.out.println("\nUpdated Insurance Scheme: " + emp.getInsuranceScheme());
-		
-	}
+//	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//		
+////		Employee emp=new Employee(26,"Ashwin",30000.00,"Tester");
+////		emp.displayEmployeeDetails();
+//
+//		
+//	}
 
 }
