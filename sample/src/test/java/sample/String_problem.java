@@ -22,7 +22,18 @@ public class String_problem {
 		for(int i=0;i<str.length();i++) {
 			set.add(str.charAt(i));
 		}
-		
+		for(Character s: set) {
+			System.out.print(s+" ");
+		}
+	}
+	public static void UpperCase() {
+		StringBuilder st=new StringBuilder(str);
+		for(int i=0;i<str.length();i++) {
+			if(i%2==0) {
+				st.toString().toUpperCase();
+			}
+		}
+		System.out.println(st);
 	}
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
@@ -44,7 +55,14 @@ public class String_problem {
 				removeDuplicates();
 				break;
 			case 4:
-				
+				UpperCase();
+				break;
+			case 5:
+				st=false;
+				break;
+			default:
+				st=false;
+				break;
 			}
 			
 		}
