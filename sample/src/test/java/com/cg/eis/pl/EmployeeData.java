@@ -17,7 +17,7 @@ public class EmployeeData {
 		Employee emp=new Employee(empid,ename,esalary,edesign);
 //		emp.displayEmployeeDetails();
 		EmpServ.checkInsuranceScheme(emp);
-//		EmpServ.displayEmployeeDetails(emp);
+		EmpServ.displayEmployeeDetails(emp);
 		
 	}
 }

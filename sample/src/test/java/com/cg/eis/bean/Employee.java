@@ -28,7 +28,7 @@ public class Employee {
 	}
 	
 	public void setName() {
-		this.name=name;
+		this.name = name;
 	}
 	
 	 public double getSalary() {
@@ -45,46 +45,32 @@ public class Employee {
 
 	    public void setDesignation(String designation) {
 	        this.designation = designation;
-	        this.insuranceScheme=desig(designation);
+	        desig(designation);
 	    }
 
 	    public String getInsuranceScheme() {
 	        return insuranceScheme;
 	    }
 	    
+//	    public void setInsuranceScheme() {
+//	    	this.insuranceScheme=desig(designation);
+//	    }
+	    
 	    public String desig(String designation) {
-	    	if(designation.equalsIgnoreCase("Manager")) {
-	    		return "Scheme 1";
+	    	if(designation.equals("Manager")) {
+	    		return this.insuranceScheme="Scheme 1";
 	    	}
-	    	else if(designation.equalsIgnoreCase("Team Lead")) {
-	    		return "Scheme 2";
+	    	else if(designation.equals("Team Lead")) {
+	    		return this.insuranceScheme="Scheme 2";
 	    	}
-	    	else if(designation.equalsIgnoreCase("Developer")) {
-	    		return "Scheme 3";
+	    	else if(designation.equals("Developer")) {
+	    		return this.insuranceScheme="Scheme 3";
 	    	}
 	    	else {
-	    		return "No Scheme";
+	    		return this.insuranceScheme="No Scheme";
 	    	}
 	    }
-
-	    // Method to display employee details
-	    public void displayEmployeeDetails() {
-	        System.out.println("Employee ID: " + id);
-	        System.out.println("Employee Name: " + name);
-	        System.out.println("Employee Salary: " + salary);
-	        System.out.println("Employee Designation: " + designation);
-	        System.out.println("Employee Insurance Scheme: " + insuranceScheme);
-	    }
+	    
 	
-	
-
-//	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
-//		
-////		Employee emp=new Employee(26,"Ashwin",30000.00,"Tester");
-////		emp.displayEmployeeDetails();
-//
-//		
-//	}
 
 }
