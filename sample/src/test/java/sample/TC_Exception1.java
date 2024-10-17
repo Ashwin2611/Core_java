@@ -5,7 +5,7 @@ public class TC_Exception1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-			int res=10/9;
+			int res=10/ ;
 			int[] num= {1,2,3};
 			System.out.println(num[5]);
 			

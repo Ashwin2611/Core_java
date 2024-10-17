@@ -3,12 +3,15 @@ import java.util.*;
 
 abstract class Accounts{
 	private String name;
+	private int accnum;
 	private int age;
 	private int balance;
-	public Accounts(String name,int age,int Balance) {
+	public Accounts(String name,int age,int Balance,int accnum) {
 		this.name=name;
 		this.setAge(age);
 		this.setBalance(Balance);
+		this.accnum=accnum;
+		
 	}
 	public String getName() {
 		return name;
@@ -28,13 +31,19 @@ abstract class Accounts{
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
+	public int getAccnum() {
+		return accnum;
+	}
+	public void setAccnum(int accnum) {
+		this.accnum = accnum;
+	}
 	abstract public boolean Withdraw(int amount);
 }
 
 class Saving extends Accounts{
 	
-	public Saving(String name,int age,int amount) {
-		super(name,age,amount);
+	public Saving(String name,int age,int amount,int accnum) {
+		super(name,age,amount,accnum);
 	}
 	final int MiniBalance=1000;
 	@Override
@@ -50,8 +59,8 @@ class Saving extends Accounts{
 }
 
 class Current extends Accounts{
-	public Current(String name,int age,int amount) {
-		super(name,age,amount);
+	public Current(String name,int age,int amount,int accnum) {
+		super(name,age,amount,accnum);
 	}
 	private int overdraft_limit=10000;
 	
@@ -76,8 +85,8 @@ public class Savings {
 		int amount=sc.nextInt();
 		System.out.print("Withdraw Amount:");
 		int WithdrawAmount=sc.nextInt();
-		Saving save=new Saving("Ashwin",22,amount);
-		Current cur=new Current("Ashwin",22,amount);
+		Saving save=new Saving("Ashwin",22,amount,112);
+		Current cur=new Current("Ashwin",22,amount,112);
 		System.out.println(save.getName()+" deposited Rupee:"+amount);
 		boolean WithDraw=save.Withdraw(WithdrawAmount);
 		if(WithDraw==true) {

@@ -1,4 +1,5 @@
 package com.cg.eis.bean;
+import com.cg.eis.exception.*;
 
 public class Employee {
 	private int id;
@@ -7,12 +8,15 @@ public class Employee {
 	private String designation;
 	private String insuranceScheme;
 	
-	public Employee(int id,String name,double salary,String designation) {
+	public Employee(int id,String name,double salary,String designation) throws EmployeeException {
 		this.id=id;
 		this.name=name;
 		this.salary=salary;
 		this.designation=designation;
 		this.insuranceScheme=desig(designation);
+		if(salary<3000) {
+        	throw new EmployeeException();
+        }
 	}
 	
 	public int getId() {
@@ -37,6 +41,7 @@ public class Employee {
 
 	    public void setSalary(double salary) {
 	        this.salary = salary;
+	        
 	    }
 
 	    public String getDesignation() {

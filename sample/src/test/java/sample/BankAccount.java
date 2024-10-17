@@ -1,24 +1,37 @@
 package sample;
  
+
+class AgeException1 extends Exception{
+//	private int age;
+	public AgeException1(int age) {
+		super("Age "+ age +" is Invalid.");
+//		this.age=age;
+	}
+	
+}
 class Person{
 	private String name;
-	private float age;
+	private int age;
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public float getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(float age) {
-		this.age = age;
+	public void setAge(int age) {
+		this.age=age;
 	}
-	public Person(String name, float age) {
+	public Person(String name, int age) throws AgeException1 {
 		super();
 		this.name = name;
 		this.age = age;
+		if(age<16) {
+//			System.out.println("in Method");
+			throw new AgeException1(age);
+		}
 	}
 }
  
@@ -50,7 +63,7 @@ class Account extends Person{
 		long number=(long)(Math.random()*1000000000000l);
 		return number;
 	}
-	public Account(long accNum, double balance, Person accholder) {
+	public Account(long accNum, double balance, Person accholder) throws AgeException1 {
 		super(accholder.getName(),accholder.getAge());
 		this.accNum = accNum;
 		this.balance = balance;
@@ -84,11 +97,15 @@ public class BankAccount {
  
 	public static void main(String args[])
 	{
-		 Account Smith=new Account(Account.generateAccNumber(),2000,new Person("Smith",23));
-		 Account kathy=new Account(Account.generateAccNumber(),3000,new Person("Kathy",24));
-		 Smith.depositAmount(2000);
-		 System.out.println("Updated balance for smith: "+Smith.getBalance());
-		 kathy.withDrawAmount(3000);
-		 System.out.println("Updated balance for kathy: "+kathy.getBalance());
+		try {
+			Account Smith=new Account(Account.generateAccNumber(),2000,new Person("Smith",13));
+			Account kathy=new Account(Account.generateAccNumber(),3000,new Person("Kathy",24));
+			Smith.depositAmount(2000);
+			System.out.println("Updated balance for smith: "+Smith.getBalance());
+			kathy.withDrawAmount(3000);
+			System.out.println("Updated balance for kathy: "+kathy.getBalance());
+		}catch(AgeException1 e) {
+			System.out.print(e.getMessage());
+		}
 	}
 }
