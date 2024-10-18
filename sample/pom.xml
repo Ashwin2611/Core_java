@@ -21,6 +21,11 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    
+
+    <dependency>
+    	<groupId>25thsept2024</groupId>
+    	<artifactId>25thsept2024</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>
